@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.vip": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}
