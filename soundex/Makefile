@@ -3,7 +3,7 @@ LOCAL_CFLAGS=
 LOCAL_LIBS=
 
 PROG=soundex
-OBJS=soundex ../common/utils.o
+OBJS=soundex.o ../common/utils.o
 
 include ../Makefile
 

@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 #include <iostream>
 #include <cstdlib>
 #include <cctype>
@@ -9,25 +6,22 @@
 #include <map>
 using namespace std;
 
-// include build configuration defines
-#include "../config.h"
-
 string target;
+
 string removeChars( string s, int pos, bool f( char c ) )
 {
    if ( pos >= s.size() ) return s;                                  
    string::iterator end = remove_if( s.begin() + pos, s.end(), f );  
    return s.substr( 0, end - s.begin() );                            
 }
+
 bool isIn( char c ) { return target.find( toupper( c ) ) != string::npos; }
+
 bool notAlpha( char c ) { return !isalpha( c ); }
 
-void soundex(string word)
+int soundex( string word )
 {
-// write your algorithm
-#ifdef VIP_NA_MODE
-// write the soundex algorithm here
-  map<char,char> cmap = { {'B','1'}, {'F','1'}, {'P','1'}, {'V','1'},
+   map<char,char> cmap = { {'B','1'}, {'F','1'}, {'P','1'}, {'V','1'},
                            {'C','2'}, {'G','2'}, {'J','2'}, {'K','2'}, {'Q','2'}, {'S','2'}, {'X','2'}, {'Z','2'},
                            {'D','3'}, {'T','3'},
                            {'L','4'},
@@ -62,25 +56,16 @@ void soundex(string word)
    
    result += "000";
    cout << "Soundex representation is " <<result.substr( 0, 4 )<< endl;
-  
-#else
-
-// do oblivious stuff
-#endif
+   return 0;
 }
-
-
-
-
 int main()
 {
-
    string word ="hello";
-      {
-         Stopwatch s("VIP_Bench Runtime");
-
-         soundex( word ) ;
-
-      }
+   // while ( true )
+   // {
+   //    cout << "Enter a word (empty to end): ";   getline( cin, word );
+      // if ( word == "" ) exit( 0 );
+      soundex( word ) ;
       
-   }
+   // }
+}
